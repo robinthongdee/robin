@@ -1,176 +1,210 @@
-.container {
-    color: rgb(0, 0, 0);
+/* ********** 0. Global & Reset ********** */
+body {
+    /* ลบ margin และ padding เริ่มต้นเพื่อให้ header ชิดขอบ */
+    margin: 0;
+    padding: 0;
+    /* ใช้สีพื้นหลังที่ไล่ระดับตามภาพรวม */
+    background: linear-gradient(to bottom, #fff8e1, #ffc516);
+    font-family: 'Prompt', sans-serif;
+}
+
+h1, h2 {
+    color: #6b3e26; /* สีน้ำตาลเข้ม */
+}
+
+/* ********** 1. Header ด้านบน (แถบเมนู) ********** */
+.top-nav-bar {
+    width: 100%;
+    height: 45px;
+    background-color: #fce5b2; /* สีเหลืองอ่อนตามส่วนเนื้อหา */
+    padding: 0 40px;
     display: flex;
-    flex-direction: column;
+    justify-content: flex-end; /* เมนูชิดขวา */
+    align-items: center;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e7d1a5;
+}
+
+.main-nav-right ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 25px;
+}
+
+.main-nav-right li a {
+    text-decoration: none;
+    color: #4c4c4c;
+    font-size: 14px;
+    font-family: 'Prompt', sans-serif;
+    white-space: nowrap;
+}
+
+/* จัดรูปแบบ CareCat ให้เด่น */
+.main-nav-right ul li.site-name a {
+    font-size: 16px;
     font-weight: bold;
+}
+
+.main-nav-right li a:hover {
+    color: #cc0606; /* สีโฮเวอร์ตามโค้ดที่คุณให้มา */
+}
+
+/* ********** 2. การจัดวาง Layout หลัก (กรอบแมว) ********** */
+.page-layout-container {
+    display: flex;
+    justify-content: center; /* จัดกรอบทั้งหมดให้อยู่กึ่งกลางหน้าจอ */
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.cat-profile-container {
+    display: flex; /* จัด Sidebar และ Content ให้อยู่เคียงข้างกัน */
+    width: 900px; /* กำหนดความกว้างรวมของกรอบข้อมูลแมว */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ********** 3. Sidebar (ซ้าย/สีส้ม) ********** */
+.sidebar {
+    /* เปลี่ยนจาก class 'sidebar' ในโค้ดที่คุณให้มา เป็นโค้ดตามภาพ */
+    width: 35%; /* ความกว้างของ Sidebar */
+    background-color: #f7a01d; /* สีส้มเข้มตามภาพ */
+    padding: 20px;
+    box-shadow: none; /* ลบ shadow ที่ซ้ำซ้อน */
+    color: white;
     text-align: center;
 }
 
-.header,
-.sidebar,
-.main,
-.footer {
-    padding: 10px;
-}
-
-.content {
-    display: flex;
-    flex-direction: row;
-
-}
-
-.header {
-    background-color: rgb(226, 155, 1);
-    border-radius: 30px;
-}
-
-.sidebar {
-    background-color: #f6ac17;
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-}
-
-.sidebar img {
-    border-radius: 50%;
-    width: 200px;
-    border: 5px solid   #ffffff;
-}
-
-
-.main {
-    background-color: rgb(236, 183, 67);
-    width: 100%;
-    height: 500px;
-}
-
-.footer {
-    background-color: rgb(249, 123, 33);
-    height: 200px;
-}
-
-.img_profile {
-    background-color: rgb(98, 133, 230);
-    background-image: url(https://cdn.omlet.com/images/originals/breed_abyssinian_cat.jpg);
-    background-size: cover;
-    background-position: center;
-    width: 250px;
-    height: 250px;
+.cat-menu-button { /* ปุ่ม 'แมว' วงกลมส้มด้านบนซ้าย */
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #f7a01d; 
+    border: 3px solid #fce5b2; /* ขอบสีเหลืองอ่อน */
     border-radius: 50%;
-    margin-left: 30px;
-    margin-top: 30px;
-    margin-right: 30px;
-
+    margin: 0; /* จัดวางให้อยู่ชิดซ้าย/บนของกรอบ */
+    position: absolute; /* **สำคัญ: ใช้ absolute เพื่อจัดให้อยู่เหนือมุมซ้ายบน** */
+    top: -20px;
+    left: -20px;
+    color: #4c4c4c; /* สีข้อความเข้ม */
+    font-size: 0.9em;
+    font-weight: bold;
+}
+/* ต้องเพิ่ม position: relative; ให้กับองค์ประกอบที่ครอบ cat-profile-container เพื่อให้ cat-menu-button ทำงาน */
+.cat-profile-container {
+    /* ... โค้ดเดิม ... */
+    position: relative; /* เพิ่มโค้ดนี้ */
 }
 
-.text_main {
-    color: rgb(0, 0, 0);
-    text-align: left;
+
+.img_profile {
+    /* ใช้ class 'img_profile' ของคุณ */
+    background-image: url(https://cdn.omlet.com/images/originals/breed_abyssinian_cat.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 180px; /* ปรับขนาดให้เล็กลงตามภาพ */
+    height: 180px;
+    border-radius: 50%;
+    margin: 20px auto; /* จัดให้อยู่กึ่งกลาง Sidebar */
+    border: 5px solid #ffffff;
 }
 
 .text_sidebar {
-    color: black;
+    color: black; /* สีดำตามที่คุณกำหนด */
     text-align: left;
-    margin-left: 50px;
+    margin-left: 20px; /* ชิดซ้าย */
+    font-weight: 500;
 }
 
-body {
-    background: linear-gradient(to bottom, #ffbf00, #ffffff);
+/* ********** 4. Main Content (ขวา/สีเหลืองอ่อน) ********** */
+.main.content-body { /* ใช้ทั้ง class 'main' และ 'content-body' */
+    width: 65%;
+    background-color: #fce5b2; /* สีเหลืองอ่อนตามภาพ */
+    padding: 30px;
+    border-radius: 0 15px 15px 0; /* มุมมนเฉพาะด้านขวา */
+    height: auto; /* ลบความสูงคงที่ */
 }
 
-.container {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    flex-wrap: wrap;
-}
-
-.footer {
-    background: linear-gradient(to right, #e9a11c);
-    color: #fff;
-    text-align: center;
-    padding: 10px ;
-    margin-top: 5px;
-    border-top: 3px solid #e9c46a;
-}
-
-.footer a {
-    color: #ffffff;
-    text-decoration: none;
+.section-header {
+    font-size: 1.5em;
     font-weight: bold;
-    transition: color 0.3s;
+    color: #6b3e26;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 10px;
 }
 
-.footer a:hover {
-    color: #fff;
-    text-decoration: underline;
+.page-subtitle {
+    font-size: 1.1em;
+    text-align: center;
+    margin-bottom: 5px;
+    font-weight: normal;
 }
 
-.talk-btn {
-    background-color: #13a424;
+/* ********** 5. ส่วนท้ายด้านล่าง (Footer Box & บทความแนะนำ) ********** */
+.content-footer-wrapper {
+    padding-top: 30px;
+    margin-top: 40px;
+    width: 100%;
+    text-align: center; /* **จัดให้อยู่กึ่งกลางของ Content Body** */
+}
+
+.footer-section-header {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #4c4c4c;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* กล่องส้มเข้ม (ปุ่มติดต่อ) */
+.profile-footer-box {
+    width: 85%;
+    max-width: 550px;
+    background-color: #e8a800; /* สีส้มเข้ม */
+    padding: 30px;
+    border-radius: 10px;
+    color: #4c4c4c;
+    text-align: center;
+    margin: 15px auto 25px auto; /* จัดกึ่งกลางแนวนอน */
+}
+
+.profile-footer-box p {
+    color: black;
+    margin-bottom: 15px;
+}
+
+.contact-button { /* เปลี่ยนชื่อ class จาก .talk-btn เป็น .contact-button */
+    background-color: #13a424; /* สีเขียว */
     color: white;
     border: none;
     padding: 10px 20px;
-    margin-top: 10px;
     border-radius: 10px;
     cursor: pointer;
     font-family: 'Prompt', sans-serif;
     font-weight: 600;
     transition: 0.3s;
+    /* ลบ animation: bounce 2s infinite; ถ้าไม่ต้องการ */
 }
 
-.talk-btn:hover {
-    background-color: #264653;
-    transform: scale(1.05);
-}
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-.talk-btn {
-  animation: bounce 2s infinite;
-}
-body {
-  background: linear-gradient(to bottom, #fff8e1, #ffc516);
-}
-.footer {
-  display: flex;
-  flex-direction: column; /* จัดให้อยู่แนวตั้ง */
-  align-items: center; /* จัดกึ่งกลางแนวนอน */
-  justify-content: center;
-  background-color: #EBA937;
-  padding: 20px;
-  border-radius: 10px;
-  width: fit-content;
-  margin: 0 auto;
+/* กล่องบทความแนะนำ (สีขาว) */
+.recommendation-box-standalone {
+    width: 250px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 15px auto 20px auto; /* จัดกึ่งกลางแนวนอน */
 }
 
-.footer p {
-  margin: 0 0 10px 0; /* ขยับระยะระหว่างข้อความกับปุ่ม */
-  font-weight: bold;
-  color: white;
+.recommendation-box-standalone a {
+    color: #8c00b0; /* สีม่วง */
+    text-decoration: none;
+    font-weight: bold;
 }
-
-.contact-btn {
-  background-color: #00A81D;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.contact-btn:hover {
-  background-color: #008F19;
-}
-.container {
-  display: flex;
-  gap: 20px;
-  margin: 0;
-  padding: 20px;
-}
-
