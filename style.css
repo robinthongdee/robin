@@ -1,210 +1,273 @@
-/* ********** 0. Global & Reset ********** */
+/* style.css */
+:root {
+    --bg: #0f1724;
+    --card: rgba(255, 255, 255, 0.06);
+    --glass: rgba(255, 255, 255, 0.04);
+    --accent1: #7c3aed;
+    --accent2: #06b6d4;
+    --text: #e6eef8;
+    --muted: rgba(230, 238, 248, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.06);
+    font-synthesis: none;
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
 body {
-    /* ลบ margin และ padding เริ่มต้นเพื่อให้ header ชิดขอบ */
+    height: 100%;
+}
+
+body {
     margin: 0;
-    padding: 0;
-    /* ใช้สีพื้นหลังที่ไล่ระดับตามภาพรวม */
-    background: linear-gradient(to bottom, #fff8e1, #ffc516);
-    font-family: 'Prompt', sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', Arial;
+    background: radial-gradient(1200px 600px at 10% 10%, rgba(124, 58, 237, 0.12), transparent),
+        radial-gradient(900px 400px at 90% 90%, rgba(6, 182, 212, 0.08), transparent),
+        var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 48px 18px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
-h1, h2 {
-    color: #6b3e26; /* สีน้ำตาลเข้ม */
-}
-
-/* ********** 1. Header ด้านบน (แถบเมนู) ********** */
-.top-nav-bar {
+.wrap {
     width: 100%;
-    height: 45px;
-    background-color: #fce5b2; /* สีเหลืองอ่อนตามส่วนเนื้อหา */
-    padding: 0 40px;
+    max-width: 1100px;
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 28px;
+}
+
+.main {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    border: 1px solid var(--glass-border);
+    padding: 28px;
+    border-radius: 16px;
+    backdrop-filter: blur(6px) saturate(120%);
+    box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
+}
+
+header.hero {
     display: flex;
-    justify-content: flex-end; /* เมนูชิดขวา */
+    gap: 18px;
     align-items: center;
-    box-sizing: border-box;
-    border-bottom: 1px solid #e7d1a5;
 }
 
-.main-nav-right ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 14px;
+    flex: 0 0 96px;
+    background: linear-gradient(135deg, var(--accent1), var(--accent2));
     display: flex;
-    gap: 25px;
-}
-
-.main-nav-right li a {
-    text-decoration: none;
-    color: #4c4c4c;
-    font-size: 14px;
-    font-family: 'Prompt', sans-serif;
-    white-space: nowrap;
-}
-
-/* จัดรูปแบบ CareCat ให้เด่น */
-.main-nav-right ul li.site-name a {
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.main-nav-right li a:hover {
-    color: #cc0606; /* สีโฮเวอร์ตามโค้ดที่คุณให้มา */
-}
-
-/* ********** 2. การจัดวาง Layout หลัก (กรอบแมว) ********** */
-.page-layout-container {
-    display: flex;
-    justify-content: center; /* จัดกรอบทั้งหมดให้อยู่กึ่งกลางหน้าจอ */
-    margin-top: 30px;
-    margin-bottom: 50px;
-}
-
-.cat-profile-container {
-    display: flex; /* จัด Sidebar และ Content ให้อยู่เคียงข้างกัน */
-    width: 900px; /* กำหนดความกว้างรวมของกรอบข้อมูลแมว */
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* ********** 3. Sidebar (ซ้าย/สีส้ม) ********** */
-.sidebar {
-    /* เปลี่ยนจาก class 'sidebar' ในโค้ดที่คุณให้มา เป็นโค้ดตามภาพ */
-    width: 35%; /* ความกว้างของ Sidebar */
-    background-color: #f7a01d; /* สีส้มเข้มตามภาพ */
-    padding: 20px;
-    box-shadow: none; /* ลบ shadow ที่ซ้ำซ้อน */
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 28px;
     color: white;
-    text-align: center;
+    box-shadow: 0 6px 18px rgba(12, 18, 35, 0.6);
 }
 
-.cat-menu-button { /* ปุ่ม 'แมว' วงกลมส้มด้านบนซ้าย */
+h1 {
+    margin: 0;
+    font-size: 20px;
+    letter-spacing: 0.2px
+}
+
+.tagline {
+    color: var(--muted);
+    margin-top: 6px;
+    font-size: 14px
+}
+
+.about {
+    margin-top: 18px;
+    padding: 18px;
+    background: var(--card);
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+}
+
+.about p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.6
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 22px 0 12px 0
+}
+
+.section-title h3 {
+    margin: 0;
+    font-size: 14px
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px
+}
+
+.chip {
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    font-size: 13px;
+    color: var(--muted)
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-top: 8px
+}
+
+.project-card {
+    min-height: 110px;
+    border-radius: 10px;
+    padding: 12px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+    border: 1px dashed rgba(255, 255, 255, 0.03);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start
+}
+
+.muted {
+    color: var(--muted);
+    font-size: 13px
+}
+
+.side {
+    position: relative;
+    padding: 20px;
+    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    border: 1px solid var(--glass-border);
+    height: fit-content;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, var(--accent1), var(--accent2));
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px
+}
+
+footer.note {
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center
+}
+
+@media (max-width:960px) {
+    .wrap {
+        grid-template-columns: 1fr;
+    }
+
+    .side {
+        order: 2
+    }
+}
+
+.profile-photo {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40px;
-    height: 40px;
-    background-color: #f7a01d; 
-    border: 3px solid #fce5b2; /* ขอบสีเหลืองอ่อน */
-    border-radius: 50%;
-    margin: 0; /* จัดวางให้อยู่ชิดซ้าย/บนของกรอบ */
-    position: absolute; /* **สำคัญ: ใช้ absolute เพื่อจัดให้อยู่เหนือมุมซ้ายบน** */
-    top: -20px;
-    left: -20px;
-    color: #4c4c4c; /* สีข้อความเข้ม */
-    font-size: 0.9em;
-    font-weight: bold;
-}
-/* ต้องเพิ่ม position: relative; ให้กับองค์ประกอบที่ครอบ cat-profile-container เพื่อให้ cat-menu-button ทำงาน */
-.cat-profile-container {
-    /* ... โค้ดเดิม ... */
-    position: relative; /* เพิ่มโค้ดนี้ */
+    padding: 20px;
 }
 
-
-.img_profile {
-    /* ใช้ class 'img_profile' ของคุณ */
-    background-image: url(https://cdn.omlet.com/images/originals/breed_abyssinian_cat.jpg);
-    background-size: cover;
-    background-position: center;
-    width: 180px; /* ปรับขนาดให้เล็กลงตามภาพ */
-    height: 180px;
-    border-radius: 50%;
-    margin: 20px auto; /* จัดให้อยู่กึ่งกลาง Sidebar */
-    border: 5px solid #ffffff;
+.profile-photo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
-.text_sidebar {
-    color: black; /* สีดำตามที่คุณกำหนด */
-    text-align: left;
-    margin-left: 20px; /* ชิดซ้าย */
-    font-weight: 500;
-}
-
-/* ********** 4. Main Content (ขวา/สีเหลืองอ่อน) ********** */
-.main.content-body { /* ใช้ทั้ง class 'main' และ 'content-body' */
-    width: 65%;
-    background-color: #fce5b2; /* สีเหลืองอ่อนตามภาพ */
-    padding: 30px;
-    border-radius: 0 15px 15px 0; /* มุมมนเฉพาะด้านขวา */
-    height: auto; /* ลบความสูงคงที่ */
-}
-
-.section-header {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #6b3e26;
-    text-align: center;
-    margin-top: 25px;
-    margin-bottom: 10px;
-}
-
-.page-subtitle {
-    font-size: 1.1em;
-    text-align: center;
-    margin-bottom: 5px;
-    font-weight: normal;
-}
-
-/* ********** 5. ส่วนท้ายด้านล่าง (Footer Box & บทความแนะนำ) ********** */
-.content-footer-wrapper {
-    padding-top: 30px;
-    margin-top: 40px;
+.profile-photo img {
     width: 100%;
-    text-align: center; /* **จัดให้อยู่กึ่งกลางของ Content Body** */
+    max-width: 420px;
+    height: auto;
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
-.footer-section-header {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #4c4c4c;
-    margin-bottom: 15px;
-    text-align: center;
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.profile-photo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
-/* กล่องส้มเข้ม (ปุ่มติดต่อ) */
-.profile-footer-box {
-    width: 85%;
-    max-width: 550px;
-    background-color: #e8a800; /* สีส้มเข้ม */
-    padding: 30px;
-    border-radius: 10px;
-    color: #4c4c4c;
-    text-align: center;
-    margin: 15px auto 25px auto; /* จัดกึ่งกลางแนวนอน */
+.profile-photo img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
-.profile-footer-box p {
-    color: black;
-    margin-bottom: 15px;
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
 }
 
-.contact-button { /* เปลี่ยนชื่อ class จาก .talk-btn เป็น .contact-button */
-    background-color: #13a424; /* สีเขียว */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-family: 'Prompt', sans-serif;
-    font-weight: 600;
-    transition: 0.3s;
-    /* ลบ animation: bounce 2s infinite; ถ้าไม่ต้องการ */
+.icon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
-/* กล่องบทความแนะนำ (สีขาว) */
-.recommendation-box-standalone {
-    width: 250px;
-    background-color: white;
-    border-radius: 8px;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 15px auto 20px auto; /* จัดกึ่งกลางแนวนอน */
+.icon i {
+  font-size: 20px;
 }
 
-.recommendation-box-standalone a {
-    color: #8c00b0; /* สีม่วง */
-    text-decoration: none;
-    font-weight: bold;
+.icon:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
 }
