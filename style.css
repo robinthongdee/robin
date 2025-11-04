@@ -1,3 +1,4 @@
+
 /* style.css */
 :root {
     --bg: #0f1724;
@@ -270,4 +271,45 @@ footer.note {
 .icon:hover {
   background: rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
+}
+
+/* การจัดเรียงรายการทั้งหมด */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end; /* จัดให้ไอคอนทุกอันฐานล่างตรงกัน (สำคัญ) */
+    gap: 15px; /* ระยะห่างระหว่างไอคอน */
+    margin-top: 10px;
+   
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* สไตล์พื้นฐานของไอคอนทั้งหมด */
+.skill-icon {
+    width: 45px; /* ขนาดปกติของไอคอน (HTML, CSS, Figma) */
+    height: 45px;
+    object-fit: contain;
+    margin-bottom: 5px;
+     border-radius: 50%;
+}
+
+/* สไตล์เฉพาะสำหรับไอคอน Canva (ให้ใหญ่ขึ้น) */
+.big-icon {
+    width: 70px; /* ทำให้ไอคอนใหญ่กว่าปกติ */
+    height: 70px;
+    /* หากต้องการให้ไอคอนดูเด่นและมีมิติ */
+    box-shadow: 0 0 15px rgba(0, 196, 204, 0.5); 
+    border-radius: 15px; /* ขอบมนเล็กน้อย (ถ้าภาพไม่มีพื้นหลังโปร่งใส) */
+}
+
+/* สไตล์สำหรับชื่อทักษะใต้ไอคอน */
+.skill-name {
+    font-size: 0.8em;
+    color: #cccccc;
+    text-align: center;
 }
